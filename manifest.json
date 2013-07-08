@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Brisk",
+  "description": "An extension for power-users that provides a command-palette like that of Sublime Text. Brisk let's you easily bring up your bookmarks, installed applications, change chrome settings, and go to links on your current page, all without ever leaving the keyboard at a breakneck pace.",
+  "version": "0.1.0",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["components/angular-palette/dist/styles/palette-darksoda.css"],
+      "js": [
+        "components/angular/angular.min.js",
+        "components/angular-sanitize/angular-sanitize.min.js",
+        "components/angular-palette/dist/angular-palette-deps.min.js",
+        "briskapp.js",
+        "apprunner.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "persistent": true,
+    "scripts": ["briskbackground.js"]
+  },
+  "permissions": ["tabs", "bookmarks"]
+}
