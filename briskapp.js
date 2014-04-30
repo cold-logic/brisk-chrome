@@ -1,4 +1,5 @@
 angular.module('briskChromeExtension', ['palette'])
+  .service('palette', function () { /* ... */ })
   .controller('MainCtrl', function($scope, paletteService, $timeout) {
 
     var commands = [
